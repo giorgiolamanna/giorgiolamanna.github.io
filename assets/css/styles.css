@@ -236,15 +236,7 @@ p{margin:0 0 1em}
   border:1px solid transparent;
   position: relative;
 }
-.btn::after{
-  content: "\2192"; /* freccia → con escape Unicode (anti-encoding-bug) */
-  opacity: 0; transform: translateX(-6px);
-  transition: opacity var(--t-fast), transform var(--t-fast);
-  font-weight: 400; font-size: 16px;
-  margin-left: -4px;
-  display: inline-block;
-}
-.btn:hover::after{ opacity: 1; transform: translateX(0) }
+/* Effetto freccia rimosso per evitare problemi di codifica caratteri */
 .btn-primary{ background:var(--ink); color:var(--bg) }
 .btn-primary:hover{ background:var(--accent); transform:translateY(-2px); box-shadow:var(--shadow-md) }
 .btn-ghost{ border-color:var(--line); color:var(--ink); background: transparent }
