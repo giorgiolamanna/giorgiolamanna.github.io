@@ -1,5 +1,6 @@
+@charset "UTF-8";
 /* =========================================================
-   Giorgio La Manna â€” Portfolio
+   Giorgio La Manna — Portfolio
    styles.css
    ========================================================= */
 
@@ -236,10 +237,12 @@ p{margin:0 0 1em}
   position: relative;
 }
 .btn::after{
-  content: "â†’"; opacity: 0; transform: translateX(-6px);
+  content: "\2192"; /* freccia → con escape Unicode (anti-encoding-bug) */
+  opacity: 0; transform: translateX(-6px);
   transition: opacity var(--t-fast), transform var(--t-fast);
   font-weight: 400; font-size: 16px;
   margin-left: -4px;
+  display: inline-block;
 }
 .btn:hover::after{ opacity: 1; transform: translateX(0) }
 .btn-primary{ background:var(--ink); color:var(--bg) }
@@ -762,8 +765,8 @@ p{margin:0 0 1em}
   .nav{ display:none }
   .nav-toggle{ display:block }
 
-  /* Menu mobile: l'header diventa fullscreen quando il menu Ã¨ aperto.
-     Indispensabile perchÃ© il backdrop-filter sull'header creerebbe
+  /* Menu mobile: l'header diventa fullscreen quando il menu è aperto.
+     Indispensabile perché il backdrop-filter sull'header creerebbe
      altrimenti un containing block che rompe il position:fixed del menu. */
   .site-header.is-menu-open{
     bottom: 0;
