@@ -1,5 +1,5 @@
 /* =========================================================
-   Giorgio La Manna — Portfolio
+   Giorgio La Manna â€” Portfolio
    styles.css
    ========================================================= */
 
@@ -140,7 +140,7 @@ p{margin:0 0 1em}
 .nav-list a.is-active::after{ transform:scaleX(1) }
 .nav-cta{
   background:var(--ink); color:var(--bg) !important;
-  padding:10px 18px !important; border-radius:999px;
+  padding:7px 16px !important; border-radius:8px;
   font-weight:500; transition: transform var(--t-fast), background var(--t-fast);
 }
 .nav-cta::after{ display:none !important }
@@ -704,8 +704,8 @@ p{margin:0 0 1em}
   .nav{ display:none }
   .nav-toggle{ display:block }
 
-  /* Menu mobile: l'header diventa fullscreen quando il menu è aperto.
-     Indispensabile perché il backdrop-filter sull'header creerebbe
+  /* Menu mobile: l'header diventa fullscreen quando il menu Ã¨ aperto.
+     Indispensabile perchÃ© il backdrop-filter sull'header creerebbe
      altrimenti un containing block che rompe il position:fixed del menu. */
   .site-header.is-menu-open{
     bottom: 0;
@@ -718,7 +718,10 @@ p{margin:0 0 1em}
   .site-header.is-menu-open .nav-wrap{
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 18px;
     padding-bottom: 50px;
+    gap: 0;
     min-height: 100vh;
   }
   .site-header.is-menu-open .brand{
@@ -733,7 +736,7 @@ p{margin:0 0 1em}
   .nav.is-open{
     display: block;
     width: 100%;
-    margin-top: 24px;
+    margin-top: 40px;
   }
   .nav.is-open .nav-list{
     flex-direction: column; align-items: flex-start; gap: 4px;
@@ -746,7 +749,8 @@ p{margin:0 0 1em}
   .nav.is-open .nav-cta{
     display: inline-block;
     margin-top: 16px; font-family: var(--sans); font-size:14px;
-    padding: 10px 20px !important;
+    padding: 8px 18px !important;
+    border-radius: 8px;
   }
 }
 @media (max-width: 600px){
