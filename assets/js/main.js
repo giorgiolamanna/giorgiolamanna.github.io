@@ -80,45 +80,56 @@
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  // ---------- Lightbox ----------
-  var lightbox = document.getElementById('lightbox');
-  var lbImage = document.getElementById('lbImage');
-  var lbCaption = document.getElementById('lbCaption');
-  var lbClose = document.getElementById('lbClose');
+  // ---------- Modal lavoro (con concept) ----------
+  var modal = document.getElementById('workModal');
+  var modalImage = document.getElementById('modalImage');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalCat = document.getElementById('modalCat');
+  var modalConcept = document.getElementById('modalConcept');
+  var modalTags = document.getElementById('modalTags');
+  var modalClose = document.getElementById('modalClose');
 
-  function openLightbox(src, caption) {
-    if (!lightbox) return;
-    lbImage.src = src;
-    lbImage.alt = caption || '';
-    lbCaption.textContent = caption || '';
-    lightbox.hidden = false;
-    requestAnimationFrame(function () {
-      lightbox.classList.add('is-open');
+  function openModal(tile) {
+    if (!modal) return;
+    modalImage.src = tile.getAttribute('data-img');
+    modalImage.alt = tile.getAttribute('data-title') || '';
+    modalTitle.textContent = tile.getAttribute('data-title') || '';
+    modalCat.textContent = tile.getAttribute('data-category') || '';
+    modalConcept.textContent = tile.getAttribute('data-concept') || '';
+    // Popola tag
+    modalTags.innerHTML = '';
+    var tagsAttr = tile.getAttribute('data-tags') || '';
+    tagsAttr.split(',').forEach(function (t) {
+      t = t.trim();
+      if (!t) return;
+      var li = document.createElement('li');
+      li.textContent = t;
+      modalTags.appendChild(li);
     });
+    modal.hidden = false;
+    requestAnimationFrame(function () { modal.classList.add('is-open'); });
     document.body.style.overflow = 'hidden';
   }
-  function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.classList.remove('is-open');
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
     setTimeout(function () {
-      lightbox.hidden = true;
-      lbImage.src = '';
+      modal.hidden = true;
+      modalImage.src = '';
       document.body.style.overflow = '';
-    }, 250);
+    }, 280);
   }
-  document.querySelectorAll('.work-zoom').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      openLightbox(btn.getAttribute('data-img'), btn.getAttribute('data-title'));
-    });
+  document.querySelectorAll('.work-tile').forEach(function (tile) {
+    tile.addEventListener('click', function () { openModal(tile); });
   });
-  if (lbClose) lbClose.addEventListener('click', closeLightbox);
-  if (lightbox) {
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) closeLightbox();
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
     });
   }
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape') closeModal();
   });
 
 })();
