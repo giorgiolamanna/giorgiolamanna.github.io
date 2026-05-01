@@ -91,8 +91,15 @@
 
   function openModal(tile) {
     if (!modal) return;
-    modalImage.src = tile.getAttribute('data-img');
+    var imgSrc = tile.getAttribute('data-img');
+    modalImage.src = imgSrc;
     modalImage.alt = tile.getAttribute('data-title') || '';
+    // Foto/raster: niente zoom, già piene. SVG: scala maggiore.
+    var imgWrap = modalImage.parentElement;
+    if (imgWrap) {
+      var isPhoto = /\.(jpe?g|png|webp)$/i.test(imgSrc);
+      imgWrap.classList.toggle('is-photo', isPhoto);
+    }
     modalTitle.textContent = tile.getAttribute('data-title') || '';
     modalCat.textContent = tile.getAttribute('data-category') || '';
     modalConcept.textContent = tile.getAttribute('data-concept') || '';
