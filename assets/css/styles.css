@@ -194,16 +194,27 @@ p{margin:0 0 1em}
   grid-template-columns: 1.25fr 1fr;
   align-items:center;
 }
-.eyebrow{
-  display:inline-flex; align-items:center; gap:12px;
-  font-size:11.5px; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--ink-muted); font-weight:600;
-  margin-bottom:28px;
-  padding: 6px 14px 6px 0;
+
+/* Hero unificato (Chi sono) — solo numero in alto, poi due colonne */
+.hero-chisono .section-head{
+  margin-bottom: clamp(28px, 4vw, 44px);
+  max-width: none;
 }
-.eyebrow::before{
-  content:""; width:32px; height:1px; background:var(--accent);
-  display:inline-block;
+.section-head-bare .section-num{
+  margin-bottom: 0;
+}
+.hero-chisono .display{
+  font-size: clamp(36px, 5.2vw, 72px);
+  margin-bottom: 24px;
+}
+.hero-chisono .lead{
+  margin-bottom: 18px;
+}
+.hero-chisono .lead:last-of-type{
+  margin-bottom: 32px;
+}
+.hero-chisono .badges-row{
+  margin-top: 8px;
 }
 .display{
   font-size: clamp(40px, 6.6vw, 88px);
@@ -227,7 +238,6 @@ p{margin:0 0 1em}
 }
 .lead strong{ color:var(--ink); font-weight:600 }
 
-.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:42px }
 .btn{
   display:inline-flex; align-items:center; gap:10px;
   padding:14px 26px; border-radius:10px;
@@ -238,9 +248,9 @@ p{margin:0 0 1em}
 }
 /* Effetto freccia rimosso per evitare problemi di codifica caratteri */
 .btn-primary{ background:var(--ink); color:var(--bg) }
-.btn-primary:hover{ background:var(--accent); transform:translateY(-2px); box-shadow:var(--shadow-md) }
+.btn-primary:hover{ background:var(--accent); transform:translateY(-1px); box-shadow:var(--shadow-sm) }
 .btn-ghost{ border-color:var(--line); color:var(--ink); background: transparent }
-.btn-ghost:hover{ border-color:var(--ink); transform:translateY(-2px); background: rgba(255,255,255,.4) }
+.btn-ghost:hover{ border-color:var(--ink); transform:translateY(-1px); background: rgba(255,255,255,.4) }
 .btn-on-dark{ background:var(--on-dark); color:var(--ink) }
 .btn-on-dark:hover{ background:var(--accent); color:var(--on-dark) }
 
@@ -257,7 +267,7 @@ p{margin:0 0 1em}
   transform: rotate(-1.5deg);
   transition: transform var(--t-med);
 }
-.hero-photo:hover::before{ transform: rotate(-3deg) translate(-4px, 4px) }
+.hero-photo:hover::before{ transform: rotate(-2.5deg) translate(-2px, 2px) }
 .photo-frame{
   position:relative; width: clamp(260px, 36vw, 420px); aspect-ratio: 4/5;
   border-radius: var(--radius-lg);
@@ -280,17 +290,44 @@ p{margin:0 0 1em}
 @keyframes spin{ to{transform: rotate(360deg)} }
 
 /* ------------ Chi sono / badges ------------ */
-.badges-row{ display:flex; gap:24px; align-items:center; flex-wrap:wrap; margin-top:32px}
-.badge-cert{
-  display:flex; align-items:center; gap:14px; margin:0;
-  padding:14px 18px; border:1px solid var(--line); border-radius:14px;
-  background:rgba(255,255,255,.55);
-  transition: transform var(--t-fast), border-color var(--t-fast);
+.badges-row{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+  margin-top: 32px;
 }
-.badge-cert:hover{ transform: translateY(-3px); border-color: var(--ink) }
-.badge-cert img{ width:54px; height:54px; object-fit:contain }
-.badge-cert figcaption{ font-size:13.5px; line-height:1.35; color:var(--ink) }
-.badge-cert small{ color:var(--ink-muted); font-size:12px }
+.badge-cert{
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,.55);
+  min-width: 0;
+  transition: transform var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+}
+.badge-cert:hover{
+  transform: translateY(-1px);
+  border-color: var(--ink-soft);
+  background: #ffffff;
+}
+.badge-cert img{ width: 54px; height: 54px; object-fit: contain }
+.badge-cert figcaption{
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--ink);
+  min-width: 0;
+}
+.badge-cert small{
+  display: block;
+  color: var(--ink-muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
 
 /* ------------ Timeline / Formazione ------------ */
 .timeline{
@@ -440,8 +477,8 @@ p{margin:0 0 1em}
   transition: transform var(--t-med), box-shadow var(--t-med), border-color var(--t-fast);
 }
 .exp-card:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
   border-color: var(--ink);
 }
 
@@ -532,26 +569,6 @@ p{margin:0 0 1em}
   .exp-tags-stack li span{ width: auto }
 }
 
-.skills-block{ margin-top: 40px }
-.skills-title{
-  font-family:var(--serif); font-size: clamp(22px, 2.4vw, 30px);
-  font-weight: 500; margin-bottom: 24px;
-  padding-top: 30px; border-top: 1px solid var(--line);
-}
-.skills-grid{
-  display:grid; gap:30px;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-}
-.skills-grid h4{
-  font-family: var(--sans); font-size:12.5px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--ink-muted); font-weight:600;
-  margin-bottom:12px;
-}
-.skills-grid ul li{
-  font-size:15px; padding:6px 0; border-bottom:1px dashed var(--line);
-}
-.skills-grid ul li:last-child{ border-bottom:none }
-
 /* ------------ Lavori — griglia a scacchiera ------------ */
 .works-grid{
   display: grid;
@@ -567,7 +584,8 @@ p{margin:0 0 1em}
 
 .work-tile{
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 0;
   border: 1px solid var(--line);
@@ -578,16 +596,20 @@ p{margin:0 0 1em}
   text-align: left;
   font-family: inherit;
   transition: transform var(--t-med), box-shadow var(--t-med), border-color var(--t-fast);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 6px rgba(20,19,15,.04);
 }
 .work-tile:hover{
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
   border-color: var(--ink);
+}
+.work-tile:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 .work-tile-img{
   position: relative;
-  aspect-ratio: 4/5;
+  aspect-ratio: 9/10;
   background: #ffffff;
   display: flex; align-items: center; justify-content: center;
   padding: 0;
@@ -600,49 +622,75 @@ p{margin:0 0 1em}
   transform: scale(1.18);
   transition: transform var(--t-med);
 }
-.work-tile:hover .work-tile-img img{ transform: scale(1.24) }
+.work-tile:hover .work-tile-img img{ transform: scale(1.21) }
 
 /* Modifier per casi specifici: SVG con whitespace o JPG già pieno */
-.work-tile-img.is-zoom-up img{ transform: scale(1.55) }
-.work-tile:hover .work-tile-img.is-zoom-up img{ transform: scale(1.62) }
-.work-tile-img.is-zoom-down img{ transform: scale(0.7) }
-.work-tile:hover .work-tile-img.is-zoom-down img{ transform: scale(0.74) }
+.work-tile-img.is-zoom-up img{ transform: scale(1.42) }
+.work-tile:hover .work-tile-img.is-zoom-up img{ transform: scale(1.46) }
+.work-tile-img.is-zoom-down img{ transform: scale(0.78) }
+.work-tile:hover .work-tile-img.is-zoom-down img{ transform: scale(0.81) }
 .work-tile-img::after{
-  content: "+";
-  position: absolute; top: 14px; right: 14px;
-  width: 38px; height: 38px; border-radius: 50%;
-  background: rgba(28,33,30,.86); color: var(--bg);
-  font-size: 22px; font-weight: 300; line-height: 0;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transform: scale(.7);
-  transition: opacity var(--t-fast), transform var(--t-fast), background var(--t-fast);
-  backdrop-filter: blur(6px);
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(28,33,30,0) 60%, rgba(28,33,30,.06) 100%);
+  opacity: 0;
+  transition: opacity var(--t-med);
+  pointer-events: none;
 }
-.work-tile:hover .work-tile-img::after{
-  opacity: 1; transform: scale(1);
-  background: var(--accent);
-}
+.work-tile:hover .work-tile-img::after{ opacity: 1 }
 .work-tile-info{
-  padding: 18px clamp(20px, 3vw, 26px) 22px;
+  padding: 20px clamp(22px, 3vw, 28px) 22px;
   border-top: 1px solid var(--line);
   background: var(--bg-alt);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  transition: background var(--t-fast);
 }
 .work-tile-cat{
-  display: inline-block;
-  font-size: 11px; letter-spacing: .14em;
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 600;
-  margin-bottom: 6px;
+  margin: 0;
 }
+.work-tile-cat::before{
+  content: ""; width: 18px; height: 1px;
+  background: var(--accent);
+  display: inline-block;
+  transition: width var(--t-med);
+}
+.work-tile:hover .work-tile-cat::before{ width: 24px }
 .work-tile-title{
   font-family: var(--serif);
-  font-size: clamp(18px, 1.8vw, 22px);
+  font-size: clamp(20px, 2vw, 24px);
   font-weight: 500;
   letter-spacing: -.01em;
   line-height: 1.2;
   margin: 0;
   color: var(--ink);
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px;
+  transition: color var(--t-fast);
+}
+.work-tile-title::after{
+  content: "→";
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink-muted);
+  transform: translateX(-8px);
+  opacity: 0;
+  transition: transform var(--t-med), opacity var(--t-med), color var(--t-fast);
+  flex-shrink: 0;
+}
+.work-tile:hover .work-tile-title{ color: var(--accent) }
+.work-tile:hover .work-tile-title::after{
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--accent);
 }
 
 /* ------------ Modal lavoro (concept) ------------ */
@@ -870,7 +918,7 @@ p{margin:0 0 1em}
 }
 .back-top:hover{
   background:var(--accent); border-color:var(--accent); color:var(--on-dark);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 /* ------------ Lightbox ------------ */
@@ -993,8 +1041,8 @@ p{margin:0 0 1em}
   .section{ padding: 70px 0 }
   .timeline{ padding-left: 28px; margin-left: 8px }
   .timeline-item::before{ left:-36px }
-  .badges-row{ gap: 14px }
-  .badge-cert{ flex: 1 1 100%; padding: 12px 14px }
+  .badges-row{ gap: 12px }
+  .badge-cert{ padding: 12px 14px }
   .c-label{ width: 100px; font-size: 11px }
   .contact-list li{ flex-direction: column; gap: 4px }
   .footer-wrap{ flex-direction: column; align-items: flex-start; gap:8px }

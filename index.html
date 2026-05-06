@@ -17,7 +17,10 @@
   <meta property="og:url" content="https://giorgiolamanna.net/" />
   <meta property="og:title" content="Giorgio La Manna — Visual Designer" />
   <meta property="og:description" content="Portfolio personale di Giorgio La Manna. Identità visive, locandine, infografiche e progetti di grafica." />
-  <meta property="og:image" content="https://giorgiolamanna.net/assets/img/foto-personale.jpg" />
+  <meta property="og:image" content="https://giorgiolamanna.net/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:image:alt" content="Giorgio La Manna — Visual Designer" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="Giorgio La Manna" />
 
@@ -36,7 +39,7 @@
   }
   </script>
   <meta name="twitter:description" content="Portfolio personale. Branding, editoriale, illustrazione, infografica." />
-  <meta name="twitter:image" content="https://giorgiolamanna.net/assets/img/foto-personale.jpg" />
+  <meta name="twitter:image" content="https://giorgiolamanna.net/assets/img/og-image.jpg" />
 
   <!-- JSON-LD strutturato: dati Persona per Google Knowledge Graph -->
   <script type="application/ld+json">
@@ -45,7 +48,7 @@
     "@type": "Person",
     "name": "Giorgio La Manna",
     "url": "https://giorgiolamanna.net/",
-    "image": "https://giorgiolamanna.net/assets/img/foto-personale.jpg",
+    "image": "https://giorgiolamanna.net/assets/img/og-image.jpg",
     "jobTitle": "Visual Designer & Graphic Designer",
     "description": "Visual designer e graphic designer specializzato in branding, editoriale, illustrazione e infografica. Docente di Laboratorio di tecnologie e tecniche delle comunicazioni multimediali.",
     "address": {
@@ -96,7 +99,7 @@
   <!-- ============== NAVIGAZIONE ============== -->
   <header class="site-header" id="siteHeader">
     <div class="container nav-wrap">
-      <a href="#hero" class="brand" aria-label="Giorgio La Manna - Home">
+      <a href="#chi-sono" class="brand" aria-label="Giorgio La Manna - Home">
         <img class="brand-logo" src="assets/img/marchio.svg" alt="Marchio personale Giorgio La Manna" />
       </a>
 
@@ -117,78 +120,57 @@
 
   <main id="top">
 
-    <!-- ============== HERO ============== -->
-    <section class="hero" id="hero">
-      <div class="container hero-grid">
-        <div class="hero-text reveal">
-          <p class="eyebrow">Visual Designer · Graphic Designer</p>
-          <h1 class="display">
-            Costruisco <em>identità visive</em> chiare,<br />
-            ordinate e <em>memorabili</em>.
-          </h1>
-          <p class="lead">
-            Ciao, sono <strong>Giorgio La Manna</strong>. Progetto marchi, locandine,
-            sistemi editoriali e infografiche, partendo dal concept e arrivando al segno
-            grafico. Mi muovo tra ricerca tipografica, illustrazione e visual storytelling
-            per dare forma a comunicazioni precise e personali.
-          </p>
-          <div class="hero-actions">
-            <a href="#lavori" class="btn btn-primary">Vedi i lavori</a>
-            <a href="assets/cv-giorgio-la-manna.pdf" class="btn btn-ghost" download>Scarica il CV</a>
-          </div>
-        </div>
-
-        <div class="hero-photo reveal">
-          <div class="photo-frame">
-            <img src="assets/img/foto-personale.jpg"
-                 srcset="assets/img/foto-personale-sm.jpg 800w, assets/img/foto-personale.jpg 1200w"
-                 sizes="(max-width: 760px) 70vw, 420px"
-                 alt="Ritratto di Giorgio La Manna" loading="eager" />
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ============== CHI SONO ============== -->
-    <section class="section section-light" id="chi-sono">
-      <div class="container two-col">
-        <div class="col-label reveal">
+    <!-- ============== CHI SONO (hero unificato) ============== -->
+    <section class="hero hero-chisono" id="chi-sono">
+      <div class="container">
+        <header class="section-head section-head-bare reveal">
           <span class="section-num">01</span>
-          <h2 class="section-title">Chi sono</h2>
-        </div>
-        <div class="col-body reveal">
-          <p class="big">
-            Sono un visual designer con una sensibilità per il dettaglio tipografico
-            e il sistema visivo. Affronto ogni progetto come un piccolo problema da
-            risolvere: ascolto, ricerco, traccio, semplifico.
-          </p>
-          <p>
-            Affianco la pratica progettuale al ruolo di docente di Laboratorio di
-            tecnologie e tecniche delle comunicazioni multimediali (C.D.C. B022) negli
-            istituti tecnici, dove ogni giorno condivido strumenti, metodi e cultura
-            del design con i miei studenti. Lavoro su brand identity, locandine,
-            infografiche e progetti editoriali: mi piace il momento in cui un’idea
-            trova la sua forma essenziale, e il segno grafico inizia a parlare da
-            solo.
-          </p>
+        </header>
 
-          <div class="badges-row">
-            <figure class="badge-cert">
-              <img src="assets/badges/adobe-visual-design.png" alt="Adobe Certified Professional in Visual Design" />
-              <figcaption>Adobe Certified Professional<br><small>Visual Design</small></figcaption>
-            </figure>
-            <figure class="badge-cert">
-              <img src="assets/badges/adobe-graphic-design.png" alt="Adobe Certified Professional in Graphic Design and Illustration" />
-              <figcaption>Adobe Certified Professional<br><small>Graphic Design &amp; Illustration</small></figcaption>
-            </figure>
+        <div class="hero-grid">
+          <div class="hero-text reveal">
+            <h1 class="display">
+              Costruisco <em>identità visive</em> chiare,<br />
+              ordinate e <em>memorabili</em>.
+            </h1>
+            <p class="lead">
+              Ciao, sono <strong>Giorgio La Manna</strong>, visual designer con
+              una sensibilità per il dettaglio tipografico e il sistema visivo.
+              Affronto ogni progetto come un piccolo problema da risolvere:
+              ascolto, ricerco, traccio, semplifico.
+            </p>
+            <p class="lead">
+              Affianco la pratica progettuale al ruolo di docente, dove ogni
+              giorno condivido strumenti, metodi e cultura del design.
+              Mi piace il momento in cui un’idea trova la sua forma essenziale
+              e il segno grafico inizia a parlare da solo.
+            </p>
+            <div class="badges-row">
+              <figure class="badge-cert">
+                <img src="assets/badges/adobe-visual-design.png" alt="Adobe Certified Professional in Visual Design" />
+                <figcaption>Adobe Certified Professional<br><small>Visual Design</small></figcaption>
+              </figure>
+              <figure class="badge-cert">
+                <img src="assets/badges/adobe-graphic-design.png" alt="Adobe Certified Professional in Graphic Design and Illustration" />
+                <figcaption>Adobe Certified Professional<br><small>Graphic Design &amp; Illustration</small></figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="hero-photo reveal">
+            <div class="photo-frame">
+              <img src="assets/img/foto-personale.jpg"
+                   srcset="assets/img/foto-personale-sm.jpg 800w, assets/img/foto-personale.jpg 1200w"
+                   sizes="(max-width: 760px) 70vw, 420px"
+                   alt="Ritratto di Giorgio La Manna" loading="eager" />
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============== ESPERIENZE ============== -->
-    <section class="section" id="esperienze">
+    <section class="section section-light" id="esperienze">
       <div class="container">
         <header class="section-head reveal">
           <span class="section-num">02</span>
@@ -237,32 +219,11 @@
 
         </div>
 
-        <div class="skills-block reveal">
-          <h3 class="skills-title">Strumenti &amp; competenze</h3>
-          <div class="skills-grid">
-            <div>
-              <h4>Software</h4>
-              <ul><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Adobe InDesign</li></ul>
-            </div>
-            <div>
-              <h4>Discipline</h4>
-              <ul><li>Brand identity</li><li>Logo &amp; tipografia</li><li>Editoriale</li><li>Illustrazione vettoriale</li><li>Infografica</li></ul>
-            </div>
-            <div>
-              <h4>Didattica</h4>
-              <ul><li>Tecnologie multimediali</li><li>Coding (Scratch)</li><li>Uso didattico LIM &amp; Tablet</li><li>Tutoring P.C.T.O.</li></ul>
-            </div>
-            <div>
-              <h4>Soft skill</h4>
-              <ul><li>Pensiero progettuale</li><li>Cura del dettaglio</li><li>Comunicazione</li><li>Lavoro in team</li></ul>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- ============== LAVORI ============== -->
-    <section class="section section-light" id="lavori">
+    <section class="section" id="lavori">
       <div class="container">
         <header class="section-head reveal">
           <span class="section-num">03</span>
@@ -379,8 +340,10 @@
           <span class="section-num section-num-light">04</span>
           <h2 class="section-title section-title-light">Lavoriamo insieme</h2>
           <p class="contact-lead">
-            Hai un’idea, un progetto, un brand da far nascere o da rinfrescare?
-            Scrivimi due righe: leggo ogni messaggio e rispondo entro pochi giorni.
+            Sono un visual designer attento al dettaglio tipografico
+            e ai sistemi visivi. Se hai un’idea o un progetto da costruire
+            insieme, scrivimi due righe: leggo ogni messaggio e rispondo
+            entro pochi giorni.
           </p>
 
           <ul class="contact-list">
@@ -391,10 +354,6 @@
             <li>
               <span class="c-label">Sede</span>
               <span>Adrano (CT) · Sicilia, Italia</span>
-            </li>
-            <li>
-              <span class="c-label">Disponibile per</span>
-              <span>Branding · Locandine · Editoriale · Illustrazione · Infografica</span>
             </li>
           </ul>
         </div>
