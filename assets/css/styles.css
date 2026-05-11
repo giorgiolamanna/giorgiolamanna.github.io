@@ -269,7 +269,7 @@ p{margin:0 0 1em}
 }
 .hero-photo:hover::before{ transform: rotate(-2.5deg) translate(-2px, 2px) }
 .photo-frame{
-  position:relative; width: clamp(260px, 36vw, 420px); aspect-ratio: 4/5;
+  position:relative; width: clamp(260px, 36vw, 440px); aspect-ratio: 1/1;
   border-radius: var(--radius-lg);
   overflow:hidden; background:var(--bg-alt);
   box-shadow: var(--shadow-lg);
@@ -280,7 +280,7 @@ p{margin:0 0 1em}
 }
 .hero-photo:hover .photo-frame{ transform: rotate(0deg) }
 .photo-frame img{
-  width:100%; height:100%; object-fit:cover; object-position: center 22%;
+  width:100%; height:100%; object-fit:cover; object-position: center center;
 }
 .hero-deco{
   position:absolute; right:-30px; bottom:-30px; width:120px; color:var(--accent);
